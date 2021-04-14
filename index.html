@@ -2,31 +2,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta chaset="utf-8">
-	<meta http-equi="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equi="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 	<title>Map</title>
-  <link rel="shortcut icon" type="image/jpg" href="assets/imgs/duck_icon.ico"/>
+  <link rel="shortcut icon" type="image/jpg" href="assets/imgs/spray_can.png"/>
 
 	<!-- import style sheet -->
 	<link rel="stylesheet" href="assets/style.css">
 
-  <!-- import font -->
-
 </head>
 <body>
-	<img class="map" src="assets/imgs/map.svg"/>
-	<img class="metro_card" src="assets/imgs/metro_card.svg"/>
-	<img class="home" src="assets/imgs/home.svg"/>
-	<img class="the_bronx" src="assets/imgs/the_bronx.svg"/>
-	<img class="queens" src="assets/imgs/queens.svg"/>
-	<img class="staten_island" src="assets/imgs/staten_island.svg"/>
-	<img class="manhattan" src="assets/imgs/manhattan.svg"/>
-	<img class="brooklyn" src="assets/imgs/brooklyn.svg"/>
+	<img class="map" src="assets/imgs/map.svg" alt="map of NYC boroughs"/>
+	<a href="#0"><img class="metro_card" src="assets/imgs/metro_card.svg"/></a>
+
+	<div class="borough">
+		<div onclick="showhide('manhattan_table')" class="manhattan">Manhattan</div>
+		<div onclick="showhide('brooklyn_table')" class="brooklyn">Brooklyn</div>
+		<div onclick="showhide('the_bronx_table')" class="the_bronx">The Bronx</div>
+		<div onclick="showhide('queens_table')" class="queens">Queens</div>
+		<div onclick="showhide('staten_island_table')" class="staten_island">Staten Island</div>
+	</div>
+
+	<iframe id="manhattan_table" src="https://airtable.com/embed/shrbvaNdcOM7VNJkL?backgroundColor=cyan&layout=card" frameborder="0" onmousewheel=""></iframe>
+
+	<iframe id="brooklyn_table" src="https://airtable.com/embed/shrzIEfKptp9a8Y3Q?backgroundColor=cyan&layout=card" frameborder="0" onmousewheel=""></iframe>
+
+	<iframe id="the_bronx_table" src="https://airtable.com/embed/shrohOZ32RuVVjMFK?backgroundColor=cyan&layout=card" frameborder="0" onmousewheel=""></iframe>
+
+	<iframe id="queens_table" src="https://airtable.com/embed/shrmRwmAcyGaZLTmR?backgroundColor=cyan&layout=card" frameborder="0" onmousewheel=""></iframe>
+
+	<iframe id="staten_island_table" src="https://airtable.com/embed/shrCW27pWjJbQ1PjM?backgroundColor=cyan&layout=card" frameborder="0" onmousewheel=""></iframe>
 
 	<div class="title">
-		New York City Graffiti
+		<a href="#0" class="r-link links text-underlined">New York City Graffiti</a>
 	</div>
+
+	<canvas id='canvas'></canvas>
+
+<!-- spray can cursor -->
+<style type="text/css">body { cursor: url('data:image/x-icon;base64,AAACAAEAICAQAA0ABwDoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAD/IgC/v78AfX19AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERDM0AAAAAAAAAAAAAAAABEQxNAAAAAAAAAAAAAAAAAREMTQAAAAAAAAAAAAAAAAERDE0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIiIiIAAAAAAAAAAAAAAAACIiIiAAAAAAAAAAAAAAAAAiIiIgAAAAAAAAAAAAAAAAIiIiIAAAAAAAAAAAAAAAACIiIiAAAAAAAAAAAAAAAAAiIiIgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERDE0AAAAAAAAAAAAAAAABEQxNAAAAAAAAAAAAAAAAAREMTQAAAAAAAAAAAAAAAAERDM0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAARERAAAAAAAAAAAAACIAAAAAAAAAAAAAAAAAAiIiIgAAAQAAAAAAAAAAAAAgICIiAAEAAAAAAAAAAAAiIiIiIAARAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD////////////AH///wB///8Af///AH///wB///8Af///AH///wB///8Af///AH///wB///8Af///AH///wB///8Af///AH///wB///8Af//fgP//54D//wHj//+oQ//+AMP//+3D//+///////////////////////////////w=='), auto; }</style>
+
+<script src="main.js"></script>
+
 </body>
 </html>

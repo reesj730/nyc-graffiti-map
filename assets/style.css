@@ -1,14 +1,52 @@
 
+@import "compass/css3";
 
 @import url("https://use.typekit.net/arg6gew.css");
 
-body{
-	width: 1440px;
-	height: 900px;
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
 
+html{
 	background: #000000;
 }
 
+body{
+	width: 100%;
+}
+
+#canvas{
+	width: 100%;
+	height: 100%;
+}
+
+
+/* icons */ 
+.map{
+	position: absolute;
+	width: 819px;
+	height: 744.64px;
+	left: 650px;
+	top: 250px;
+
+	z-index: -1;
+}
+
+.metro_card{
+	position: absolute;
+	width: 133px;
+	height: 90px;
+	left: 1260px;
+	top: 23px;
+}
+
+.metro_card:hover{
+	-webkit-transform: rotateZ(-10deg);
+	-ms-transform: rotateZ(-10deg);
+	transform: rotateZ(-10deg);
+	transition: 1s ease;
+}
+
+
+/* text styles */
 .title{
 	position: absolute;
 	width: 187px;
@@ -25,92 +63,254 @@ body{
 	color: #FFFFFF;
 }
 
-.map{
-	position: absolute;
-	width: 819px;
-	height: 744.64px;
-	left: 650px;
-	top: 170px;
-}
+.borough{
+	font-family: 'Sedgwick Ave Display', cursive;
+	font-size: 30px;
+	text-transform: uppercase;
+	color:#00C868;
 
-.metro_card{
-	position: absolute;
-	width: 133px;
-	height: 90px;
-	left: 1131px;
-	top: 23px;
-}
-
-.home{
-	position: absolute;
-	width: 81px;
-	height: 81px;
-	left: 1306px;
-	top: 23px;
+	-webkit-text-stroke: 1px black;
+    text-shadow:
+       3px 3px 0 black,
+     -1px -1px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;
 }
 
 .the_bronx{
 	position: absolute;
-	width: 113px;
-	height: 24px;
-	left: 1111px;
-	top: 301px;
+	left: 1100px;
+	top: 350px;
 }
 
 .queens{
 	position: absolute;
-	width: 92px;
-	height: 27px;
 	left: 1210px;
-	top: 481px;
+	top: 530px;
 }
 
 .staten_island{
 	position: absolute;
-	width: 159px;
-	height: 34px;
 	left: 794px;
-	top: 698px;
+	top: 750px;
 }
 
 .manhattan{
 	position: absolute;
-	width: 135px;
-	height: 24px;
 	left: 988px;
-	top: 396px;	
+	top: 450px;
 }
 
 .brooklyn{
 	position: absolute;
-	width: 107px;
-	height: 26px;
-	left: 1022px;
-	top: 550px;
+	left: 1050px;
+	top: 600px;
 }
 
+
+/* hover effects */
+.the_bronx:hover, 
+.queens:hover,
+.staten_island:hover, 
+.manhattan:hover, 
+.brooklyn:hover
+{
+    transform: scale(2);
+}
+
+.the_bronx:hover{
+	color: #9D00FF;
+} 
+
+.queens:hover{
+	color:#fb203b;
+}
+
+.staten_island:hover{
+	color:#fefc4b;
+}
+
+.manhattan:hover{
+	color:#FF00FF;
+} 
+
+.brooklyn:hover
+{
+    color:#00B2FF;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+.r-link{
+	display: var(--rLinkDisplay, inline-flex) !important;
+}
+
+.r-link[href]{
+	color: var(--rLinkColor) !important;
+	text-decoration: var(--rLinkTextDecoration, none) !important;
+}
+
+.text-underlined{
+
+    --uiTextUnderlinedLineHeight: var(--textUnderlinedLineHeight, 2px); /* 1 */
+    --uiTextUnderlinedLineGap: var(--textUnderlinedLineGap, .5rem);
+    --uiTextUnderlinedPaddingBottom: calc(var(--uiTextUnderlinedLineHeight) + var(--uiTextUnderlinedLineGap));
+
+    padding-bottom: var(--uiTextUnderlinedPaddingBottom) !important;
+    position: var(--textUnderlinedPosition, relative) !important;
+		z-index: var(--textUnderlinedZindex, 1) !important;
+}
+
+.text-underlined::after{
+    content: "";
+    width: var(--textUnderlinedLineWidht, 100%) !important;
+    height: var(--uiTextUnderlinedLineHeight) !important;
+		background-image: var(--textUnderlinedBackgroundImage, linear-gradient(to top, var(--textUnderlinedLineColor, currentColor) 30%, rgba(0, 0, 0, 0) 45%)) !important;
+
+    position: absolute;
+    left: var(--textUnderlinedLineLeft, 0) !important;
+    bottom: var(--textUnderlinedLineBottom, 0) !important;
+		z-index: var(--textUnderlinedLineZindex, -1) !important;
+}
+
+.links{
+	--textUnderlinedLineHeight: 100%;
+	--textUnderlinedLineGap: 0;
+	--textUnderlinedLineColor: #00C868;
+	
+	padding-left: .75rem;
+	padding-right: .75rem;
+}
+
+.links::after{
+	will-change: width;
+	transition: width .1s ease-out;
+	transform: rotate(-2deg);
+	transform-origin: left bottom;
+}
+
+.links:hover{
+	--textUnderlinedLineWidht: 0;
+}
+
+.links:hover::after{
+	transition-duration: .15s;
+}
+
+.links{
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.links:focus{
+	outline: 2px solid #00C868;
+	outline-offset: .5rem;
+}
+
+
+/* airtables */
+#manhattan_table, 
+#brooklyn_table, 
+#the_bronx_table, 
+#queens_table, 
+#staten_island_table
+{
+	position: absolute;
+	top: 130px;
+	left: 40px;
+
+	width: 40%;
+	height: 745px;
+
+	display:none;
+}
+
+#manhattan_table{
+	background: #FF00FF;
+	border: 5px solid #FF00FF;
+}
+
+#brooklyn_table{
+	background: #00B2FF; 
+	border: 5px solid #00B2FF;
+}
+
+#the_bronx_table{
+	background: #9D00FF; 
+	border: 5px solid #9D00FF;
+}
+
+#queens_table{
+	background: #fb203b; 
+	border: 5px solid #fb203b;
+}
+
+#staten_island_table{
+	background: #fefc4b; 
+	border: 5px solid #fefc4b;
+}
 
 
 /* media queries */
-@media screen and (max-width: 400px) {
+@media screen and (max-width:800px) {
+html{
+	height: 800px;
 }
 
-@media screen and (max-width: 480px) {
+.title{
+	left: 170px;
 }
 
-@media screen and (max-width: 640px) {
+.map{
+	width: 90%;
+	height: 90%;
+	left: 40px;
+	top: 0px;
 }
 
-@media screen and (max-width: 768px) {
+.metro_card{
+	width: 20%;
+	height: 20%;
+	left: 375px;
+	top: -10px;
+
 }
 
-@media screen and (max-width: 1024px) {
+.the_bronx{
+	left: 250px;
+	top: 160px
 }
 
-@media screen and (max-width: 1140px) {
+.queens{
+	left: 340px;
+	top: 250px;
 }
 
-@media screen and (max-width: 1366px) {
+.staten_island{
+	left: 110px;
+	top: 380px;
+}
+
+.manhattan{
+	left: 140px;
+	top: 210px;
+}
+
+.brooklyn{
+	left: 200px;
+	top: 300px;
+}
+
+#manhattan_table, #brooklyn_table, #the_bronx_table, #queens_table, #staten_island_table{
+	top: 500px;
+	left: 70px;
+	width: 70%;
+	margin-bottom: 50px;
+}
 }
 
 
