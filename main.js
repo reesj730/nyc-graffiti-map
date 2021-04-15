@@ -32,8 +32,8 @@ function OilPainting(){
     width = window.innerWidth
     height = window.innerHeight
     
-    canvas.width = width;
-    canvas.height = height;
+    canvas.width = 1440;
+    canvas.height = 1000;
   
     canvas.addEventListener('mousemove', MouseMove, false);
     canvas.addEventListener('click', MouseDown, false);
